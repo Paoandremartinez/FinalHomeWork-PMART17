@@ -134,10 +134,13 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Buscar por Id Producto");
+                                System.out.println("En CONSTRUCCIÓN ");
 
                                 break;
                             case 3:
                                 System.out.println("Buscar por Nombre de Producto");
+                                System.out.println("En CONSTRUCCIÓN ");
+                                Categoria.buscarPorNombreProducto();
                                 break;
                             case 4:
                                 System.out.println("Vuelve después..... ");
@@ -153,8 +156,7 @@ public class Main {
                     System.out.println("*******************************************************************");
                     System.out.println("*******               5. Generar Reporte                 **********");
                     System.out.println("*******************************************************************");
-                    System.out.println("*                                                                 *");
-                    System.out.println("*******************************************************************");
+                    Reporte.generarReporte();
                     break;
                 case 6:
                     System.out.println("*******************************************************************");

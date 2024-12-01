@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Categoria {
-
+    private static final String leerArchivo = "D:\\PMARTINEZ\\Data\\ListaProducto.txt";
+    private static List<Producto> listaProductos = new ArrayList<>();
     private String nombreCategoria;
 
     public String getNombreCategoria() {
@@ -40,7 +41,12 @@ public class Categoria {
     }
 
     public static void buscarPorCategoria(){
+        List<Producto> listaProductosActualizar = Inventario.leerProducto();
+        System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible" );
 
+        for (Producto producto : listaProductosActualizar) {
+            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
+        }
         Scanner scanProduc = new Scanner(System.in);
         System.out.println("Nombre Categoria ");
         String categoria = scanProduc.nextLine();
@@ -50,6 +56,38 @@ public class Categoria {
 
         for(Producto producto:productos) {
             if(producto.getCategoria().equalsIgnoreCase(categoria)) {
+                productosDeLaCategoria.add(producto);
+            }
+        }
+
+        if(!productosDeLaCategoria.isEmpty()) {
+            System.out.println("Id Producto\tNombre Producto\tCategoria\tPrecio\tCantidad Disponible" );
+            for(Producto producto:productosDeLaCategoria) {
+                System.out.println(producto.getIdProducto()+"\t\t"+producto.getNombreProducto()+"\t"+producto.getCategoria()+"\t"+producto.getPrecio()+"\t"+ producto.getCantidadDisponible());
+            }
+        }else {
+            System.out.println("No existen productos asociados a esa categoria");
+        }
+
+
+    }
+
+    public static void buscarPorNombreProducto(){
+        List<Producto> listaProductosActualizar = Inventario.leerProducto();
+        System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible" );
+
+        for (Producto producto : listaProductosActualizar) {
+            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
+        }
+        Scanner scanProduc = new Scanner(System.in);
+        System.out.println("Nombre Producto ");
+        String categoriaNombreProducto = scanProduc.nextLine();
+
+        List<Producto> productos=Inventario.leerProducto();
+        List<Producto> productosDeLaCategoria=new ArrayList<>();
+
+        for(Producto producto:productos) {
+            if(producto.getNombreProducto().equalsIgnoreCase(categoriaNombreProducto)) {
                 productosDeLaCategoria.add(producto);
             }
         }
