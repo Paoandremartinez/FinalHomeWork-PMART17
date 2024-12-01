@@ -6,6 +6,8 @@ public class Main {
         int opcion = 0; // variable utilizada en el menu principal
         int opc1=0; // Variable para menu Agregar producto
         int opc2=0; // Variable para menu Actualizar producto
+        int opc3=0; // Variable para menu Eliminar producto
+        int opc4=0; // Variable para menu buscar por categoria
 
         do {
             Menu.menuPrincipal();
@@ -23,6 +25,7 @@ public class Main {
                 case 1:
                     do {
                         Menu.agregarProducto();
+                        System.out.println("Digita una opción del menú");
                         while (!leerOpcion.hasNextInt()) {
                             System.out.println("Por favor digita una opción valida");
                             leerOpcion.next();
@@ -44,33 +47,24 @@ public class Main {
 
                 case 2:
                     do {
-                        System.out.println("*******************************************************************");
-                        System.out.println("*******               2. Actualizar Producto             **********");
-                        System.out.println("*******************************************************************");
-                        System.out.println("*  Para actualizar el catalogo de producto lo puedes hacer por    *");
-                        System.out.println("*  las siguientes opciones:                                       *");
-                        System.out.println("*                                                                 *");
-                        System.out.println("*  1. Id Producto                                                 *");
-                        System.out.println("*  2. Nombre Producto                                             *");
-                        System.out.println("*  3. Me arrepenti, no quiero hacer nada :D                       *");
-                        System.out.println("*                                                                 *");
-                        System.out.println("*******************************************************************");
-
+                        Menu.actualizarProducto();
+                        System.out.println("Digita una opción del menú");
                         while (!leerOpcion.hasNextInt()) {
                             System.out.println("Por favor digita una opción valida");
                             leerOpcion.next();
                             System.out.println("Ingresa la opción");
                         }
                         opc2 = leerOpcion.nextInt();
-                        System.out.println("prueba"+opc2);
+
                         switch (opc2) {
                             case 1:
-                                System.out.println("Editando producto");
+                                System.out.println("Editando producto por Id");
                                 Inventario.actualizarProductoId();
 
                                 break;
                             case 2:
-                                System.out.println("Funcionalidad en Contrucción");
+                                System.out.println("Editando producto por nombre");
+                                Inventario.actualizarProductoPorNombre();
                                 break;
                             case 3:
                                 System.out.println("Vuelve después..... ");
@@ -84,19 +78,77 @@ public class Main {
 
 
                 case 3:
-                    System.out.println("*******************************************************************");
-                    System.out.println("*******               3. Eliminar Producto               **********");
-                    System.out.println("*******************************************************************");
-                    System.out.println("*                                                                 *");
-                    System.out.println("*******************************************************************");
+                    do {
+                        Menu.eliminarProducto();
+                        System.out.println("Digita una opción del menú");
+                        while (!leerOpcion.hasNextInt()) {
+                            System.out.println("Por favor digita una opción valida");
+                            leerOpcion.next();
+                            System.out.println("Ingresa la opción");
+                        }
+                        opc3 = leerOpcion.nextInt();
+
+                        switch (opc3) {
+                            case 1:
+                                System.out.println("Eliminando producto por Id");
+                                Inventario.eliminarProductoPorId();
+                                break;
+                            case 2:
+                                System.out.println("Eliminando producto por nombre");
+                                Inventario.eliminarProductoPorNombre();
+                                break;
+                            case 3:
+                                System.out.println("Vuelve después..... ");
+                                break;
+                            default:
+                                System.out.println("Número no válido, por favor verifique");
+                        }
+
+                    }while (opc3 != 3);
                     break;
                 case 4:
-                    System.out.println("*******************************************************************");
-                    System.out.println("*******               4. Buscar por categoria            **********");
-                    System.out.println("*******************************************************************");
-                    System.out.println("*                                                                 *");
-                    System.out.println("*******************************************************************");
+                    do {
+                        System.out.println("*******************************************************************");
+                        System.out.println("*******               4. Buscar por categoria            **********");
+                        System.out.println("*******************************************************************");
+                        System.out.println("*  Para buscar por categoria tiene las siguientes opciones:       *");
+                        System.out.println("*                                                                 *");
+                        System.out.println("*  1. Buscar por categoria                                        *");
+                        System.out.println("*  2. Buscar por id producto                                      *");
+                        System.out.println("*  3. Buscar por nombre de producto                               *");
+                        System.out.println("*  4. Me arrepenti, no quiero hacer nada :D                       *");
+                        System.out.println("*                                                                 *");
+                        System.out.println("*******************************************************************");
+                        System.out.println("Digita una opción del menú");
+                        while (!leerOpcion.hasNextInt()) {
+                            System.out.println("Por favor digita una opción valida");
+                            leerOpcion.next();
+                            System.out.println("Ingresa la opción");
+                        }
+                        opc4 = leerOpcion.nextInt();
+
+                        switch (opc4) {
+                            case 1:
+                                System.out.println("Buscar por Categoria");
+                                Categoria.buscarPorCategoria();
+                                break;
+                            case 2:
+                                System.out.println("Buscar por Id Producto");
+
+                                break;
+                            case 3:
+                                System.out.println("Buscar por Nombre de Producto");
+                                break;
+                            case 4:
+                                System.out.println("Vuelve después..... ");
+                                break;
+                            default:
+                                System.out.println("Número no válido, por favor verifique");
+                        }
+
+                    }while (opc4 != 4);
                     break;
+
                 case 5:
                     System.out.println("*******************************************************************");
                     System.out.println("*******               5. Generar Reporte                 **********");
@@ -132,14 +184,14 @@ public class Main {
 
 
         }
-            while (opcion != 8) ;
-            System.out.println("Vuelve pronto...");
-            leerOpcion.close();
+        while (opcion != 8) ;
+        System.out.println("Vuelve pronto...");
+        leerOpcion.close();
 
 
 
 
 
-    System.out.println( );
+        System.out.println( );
     }
 }

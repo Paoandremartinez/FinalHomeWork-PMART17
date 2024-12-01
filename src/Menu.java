@@ -29,5 +29,32 @@ public class Menu {
         System.out.println("Digite su opción ");
 
     }
+    public static void actualizarProducto(){
+        System.out.println("*******************************************************************");
+        System.out.println("*******               2. Actualizar Producto             **********");
+        System.out.println("*******************************************************************");
+        System.out.println("*  Para actualizar el catalogo de producto lo puedes hacer por    *");
+        System.out.println("*  las siguientes opciones:                                       *");
+        System.out.println("*                                                                 *");
+        System.out.println("*  1. Id Producto                                                 *");
+        System.out.println("*  2. Nombre Producto                                             *");
+        System.out.println("*  3. Me arrepenti, no quiero hacer nada :D                       *");
+        System.out.println("*                                                                 *");
+        System.out.println("*******************************************************************");
+    }
+    public static void eliminarProducto(){
+        System.out.println("*******************************************************************");
+        System.out.println("*******               3. Eliminar Producto               **********");
+        System.out.println("*******************************************************************");
+        System.out.println("*  Para eliminar un producto del catalogo lo puedes hacer por     *");
+        System.out.println("*  las siguientes opciones:                                       *");
+        System.out.println("*                                                                 *");
+        System.out.println("*  1. Id Producto                                                 *");
+        System.out.println("*  2. Nombre Producto                                             *");
+        System.out.println("*  3. Me arrepenti, no quiero hacer nada :D                       *");
+        System.out.println("*                                                                 *");
+        System.out.println("*******************************************************************");
+
+    }
 
 }

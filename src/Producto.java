@@ -52,11 +52,6 @@ public class Producto {
     private String mostrarProductos(){
         return "ID: " + getIdProducto() + ", Nombre: " + getNombreProducto() + ", Categoría: " + getCategoria() +
                 ", Precio: " + getPrecio() + ", Cantidad disponible: " + getCantidadDisponible();
-        /*System.out.println("Id Producto"  +getIdProducto());
-        System.out.println("Nombre Producto"  +getNombreProducto());
-        System.out.println("Categoria"  +getCategoria());
-        System.out.println("Precio"  +getPrecio());
-        System.out.println("CantidadDisponible"  +getCantidadDisponible());*/
     }
 
 
