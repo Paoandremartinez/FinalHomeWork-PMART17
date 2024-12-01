@@ -1,3 +1,5 @@
+import utilidades.ValidacionOpcion;
+
 import java.util.Scanner;
 
 public class Main {
@@ -12,12 +14,10 @@ public class Main {
         do {
             Menu.menuPrincipal();
             //Digitar la opción del menú principal
+
             System.out.println("Digita una opción del menú");
-            while (!leerOpcion.hasNextInt()) {
-                System.out.println("Por favor digita una opción valida");
-                leerOpcion.next();
-                System.out.println("Ingresa la opción");
-            }
+            ValidacionOpcion.validarOpcion(leerOpcion);
+
 
             //Casos
             opcion = leerOpcion.nextInt();
@@ -49,11 +49,7 @@ public class Main {
                     do {
                         Menu.actualizarProducto();
                         System.out.println("Digita una opción del menú");
-                        while (!leerOpcion.hasNextInt()) {
-                            System.out.println("Por favor digita una opción valida");
-                            leerOpcion.next();
-                            System.out.println("Ingresa la opción");
-                        }
+                        ValidacionOpcion.validarOpcion(leerOpcion);
                         opc2 = leerOpcion.nextInt();
 
                         switch (opc2) {
@@ -81,11 +77,7 @@ public class Main {
                     do {
                         Menu.eliminarProducto();
                         System.out.println("Digita una opción del menú");
-                        while (!leerOpcion.hasNextInt()) {
-                            System.out.println("Por favor digita una opción valida");
-                            leerOpcion.next();
-                            System.out.println("Ingresa la opción");
-                        }
+                        ValidacionOpcion.validarOpcion(leerOpcion);
                         opc3 = leerOpcion.nextInt();
 
                         switch (opc3) {
@@ -108,23 +100,9 @@ public class Main {
                     break;
                 case 4:
                     do {
-                        System.out.println("*******************************************************************");
-                        System.out.println("*******               4. Buscar por categoria            **********");
-                        System.out.println("*******************************************************************");
-                        System.out.println("*  Para buscar por categoria tiene las siguientes opciones:       *");
-                        System.out.println("*                                                                 *");
-                        System.out.println("*  1. Buscar por categoria                                        *");
-                        System.out.println("*  2. Buscar por id producto                                      *");
-                        System.out.println("*  3. Buscar por nombre de producto                               *");
-                        System.out.println("*  4. Me arrepenti, no quiero hacer nada :D                       *");
-                        System.out.println("*                                                                 *");
-                        System.out.println("*******************************************************************");
-                        System.out.println("Digita una opción del menú");
-                        while (!leerOpcion.hasNextInt()) {
-                            System.out.println("Por favor digita una opción valida");
-                            leerOpcion.next();
-                            System.out.println("Ingresa la opción");
-                        }
+                        Categoria.buscarPorCategoria();
+
+                        ValidacionOpcion.validarOpcion(leerOpcion);
                         opc4 = leerOpcion.nextInt();
 
                         switch (opc4) {
@@ -155,8 +133,11 @@ public class Main {
                 case 5:
                     System.out.println("*******************************************************************");
                     System.out.println("*******               5. Generar Reporte                 **********");
-                    System.out.println("*******************************************************************");
+                    System.out.println("*                                                                 *");
                     Reporte.generarReporte();
+                    System.out.println("*                                                                 *");
+                    System.out.println("*******************************************************************");
+
                     break;
                 case 6:
                     System.out.println("*******************************************************************");
@@ -169,6 +150,8 @@ public class Main {
                     System.out.println("*******************************************************************");
                     System.out.println("*******                7. Producto más caro              **********");
                     System.out.println("*******************************************************************");
+                    System.out.println("*                                                                 *");
+                    Reporte.productoMasCaro();
                     System.out.println("*                                                                 *");
                     System.out.println("*******************************************************************");
                     break;
@@ -183,17 +166,11 @@ public class Main {
             }
 
 
-
-
         }
         while (opcion != 8) ;
         System.out.println("Vuelve pronto...");
         leerOpcion.close();
 
 
-
-
-
-        System.out.println( );
     }
 }

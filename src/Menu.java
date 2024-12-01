@@ -56,5 +56,19 @@ public class Menu {
         System.out.println("*******************************************************************");
 
     }
+    public static void buscarPorCategoria(){
+        System.out.println("*******************************************************************");
+        System.out.println("*******               4. Buscar por categoria            **********");
+        System.out.println("*******************************************************************");
+        System.out.println("*  Para buscar por categoria tiene las siguientes opciones:       *");
+        System.out.println("*                                                                 *");
+        System.out.println("*  1. Buscar por categoria                                        *");
+        System.out.println("*  2. Buscar por id producto                                      *");
+        System.out.println("*  3. Buscar por nombre de producto                               *");
+        System.out.println("*  4. Me arrepenti, no quiero hacer nada :D                       *");
+        System.out.println("*                                                                 *");
+        System.out.println("*******************************************************************");
+        System.out.println("Digita una opción del menú");
+    }
 
 }

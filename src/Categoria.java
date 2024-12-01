@@ -67,7 +67,10 @@ public class Categoria {
             }
         }else {
             System.out.println("No existen productos asociados a esa categoria");
+
+
         }
+
 
 
     }

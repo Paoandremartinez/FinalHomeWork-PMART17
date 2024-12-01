@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Inventario {
     private static final String leerArchivo = "D:\\PMARTINEZ\\Data\\ListaProducto.txt";
+
     private static List<Producto> listaProductos = new ArrayList<>();
 
     public Inventario() {
@@ -88,144 +89,157 @@ public class Inventario {
 
     public static void actualizarProductoId() {
         List<Producto> listaProductosActualizar = Inventario.leerProducto();
-        System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible" );
+        System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible");
 
         for (Producto producto : listaProductosActualizar) {
-            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
+            System.out.println(producto.getIdProducto() + "\t\t\t\t" + producto.getNombreProducto() + "\t\t\t\t\t\t" + producto.getCategoria() + "\t\t\t" + producto.getPrecio() + "\t\t\t" + producto.getCantidadDisponible());
         }
 
         Scanner scanId = new Scanner(System.in);
-        System.out.println("Ingresa el ID Producto actualizar");
-        int idProducto = Integer.parseInt(scanId.nextLine());
+        try {
+            System.out.println("Ingresa el ID Producto actualizar");
+            int idProducto = Integer.parseInt(scanId.nextLine());
 
-        boolean loEncontro=false;
-        for(Producto producto:listaProductosActualizar) {
-            if(producto.getIdProducto()==idProducto) {
-                Scanner scanProduc = new Scanner(System.in);
-                System.out.println("Nombre Producto ");
-                String nombreProducto = scanProduc.nextLine();
-                System.out.println("Categoria ");
-                String categoria = scanProduc.nextLine();
-                System.out.println("Precio ");
-                double precio = Double.parseDouble(scanProduc.nextLine());
-                System.out.println("Cantidad Disponible ");
-                int cantidadDisponible = Integer.parseInt(scanProduc.nextLine());
+            boolean loEncontro = false;
+            for (Producto producto : listaProductosActualizar) {
+                if (producto.getIdProducto() == idProducto) {
+                    Scanner scanProduc = new Scanner(System.in);
+                    System.out.println("Nombre Producto ");
+                    String nombreProducto = scanProduc.nextLine();
+                    System.out.println("Categoria ");
+                    String categoria = scanProduc.nextLine();
+                    System.out.println("Precio ");
+                    double precio = Double.parseDouble(scanProduc.nextLine());
+                    System.out.println("Cantidad Disponible ");
+                    int cantidadDisponible = Integer.parseInt(scanProduc.nextLine());
 
-                producto.setNombreProducto(nombreProducto);
-                producto.setCategoria(categoria);
-                producto.setPrecio(precio);
-                producto.setCantidadDisponible(cantidadDisponible);
-                loEncontro=true;
-                break;
+                    producto.setNombreProducto(nombreProducto);
+                    producto.setCategoria(categoria);
+                    producto.setPrecio(precio);
+                    producto.setCantidadDisponible(cantidadDisponible);
+                    loEncontro = true;
+                    break;
+                }
             }
-        }
 
-        if(loEncontro) {
-            //Actualizar archivo
-            escribirInventario(listaProductosActualizar);
-        }else {
-            System.out.println("No existe ese id Producto en el inventario");
+
+            if (loEncontro) {
+                //Actualizar archivo
+                escribirInventario(listaProductosActualizar);
+            } else {
+                System.out.println("No existe ese id Producto en el inventario");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("El ID ingresado no es un número valido");
         }
     }
 
     public static void actualizarProductoPorNombre() {
         List<Producto> listaProductosActualizar = Inventario.leerProducto();
-        System.out.println("Id Producto\t\tNombre Producto\t\t\tCategoria\t\t\tPrecio\t\t\tCantidad Disponible" );
+        System.out.println("Id Producto\t\tNombre Producto\t\t\tCategoria\t\t\tPrecio\t\t\tCantidad Disponible");
 
         for (Producto producto : listaProductosActualizar) {
-            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
+            System.out.println(producto.getIdProducto() + "\t\t\t\t" + producto.getNombreProducto() + "\t\t\t\t\t\t" + producto.getCategoria() + "\t\t\t" + producto.getPrecio() + "\t\t\t" + producto.getCantidadDisponible());
         }
 
         Scanner scanId = new Scanner(System.in);
-        System.out.println("Ingresa el Nombre del producto a actualizar");
-        String nombreProductoActualizar = scanId.nextLine();
+        try {
+            System.out.println("Ingresa el Nombre del producto a actualizar");
+            String nombreProductoActualizar = scanId.nextLine();
 
-        boolean loEncontro=false;
-        for(Producto producto:listaProductosActualizar) {
-            if(producto.getNombreProducto().equalsIgnoreCase(nombreProductoActualizar)) {
-                Scanner scanProduc = new Scanner(System.in);
-                System.out.println("Nombre Producto \t\t");
-                String nombreProducto = scanProduc.nextLine();
-                System.out.println("Categoria \t\t");
-                String categoria = scanProduc.nextLine();
-                System.out.println("Precio \t\t");
-                double precio = Double.parseDouble(scanProduc.nextLine());
-                System.out.println("Cantidad Disponible \t\t");
-                int cantidadDisponible = Integer.parseInt(scanProduc.nextLine());
+            boolean loEncontro = false;
+            for (Producto producto : listaProductosActualizar) {
+                if (producto.getNombreProducto().equalsIgnoreCase(nombreProductoActualizar)) {
+                    Scanner scanProduc = new Scanner(System.in);
+                    System.out.println("Nombre Producto \t\t");
+                    String nombreProducto = scanProduc.nextLine();
+                    System.out.println("Categoria \t\t");
+                    String categoria = scanProduc.nextLine();
+                    System.out.println("Precio \t\t");
+                    double precio = Double.parseDouble(scanProduc.nextLine());
+                    System.out.println("Cantidad Disponible \t\t");
+                    int cantidadDisponible = Integer.parseInt(scanProduc.nextLine());
 
-                producto.setNombreProducto(nombreProducto);
-                producto.setCategoria(categoria);
-                producto.setPrecio(precio);
-                producto.setCantidadDisponible(cantidadDisponible);
-                loEncontro=true;
-                break;
+                    producto.setNombreProducto(nombreProducto);
+                    producto.setCategoria(categoria);
+                    producto.setPrecio(precio);
+                    producto.setCantidadDisponible(cantidadDisponible);
+                    loEncontro = true;
+                    break;
+                }
             }
-        }
 
-        if(loEncontro) {
-            //Actualizar archivo
-            escribirInventario(listaProductosActualizar);
-        }else {
-            System.out.println("No existe ese nombre de Producto en el inventario");
+            if (loEncontro) {
+                //Actualizar archivo
+                escribirInventario(listaProductosActualizar);
+            } else {
+                System.out.println("No existe ese nombre de Producto en el inventario");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("El dato ingresado no es correcto");
         }
     }
 
     public static void eliminarProductoPorId() {
         List<Producto> listaProductos = Inventario.leerProducto();
-        System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible" );
+        System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible");
 
         for (Producto producto : listaProductos) {
-            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
+            System.out.println(producto.getIdProducto() + "\t\t\t\t" + producto.getNombreProducto() + "\t\t\t\t\t" + producto.getCategoria() + "\t\t\t" + producto.getPrecio() + "\t\t\t" + producto.getCantidadDisponible());
         }
+        try {
+            Scanner scanId = new Scanner(System.in);
+            System.out.println("Ingresa el Id del producto a eliminar");
+            int idProductoEliminar = Integer.parseInt(scanId.nextLine());
 
-        Scanner scanId = new Scanner(System.in);
-        System.out.println("Ingresa el Id del producto a eliminar");
-        int idProductoEliminar = Integer.parseInt(scanId.nextLine());
 
+            boolean loEncontro = false;
+            for (Producto producto : listaProductos) {
 
-        boolean loEncontro=false;
-        for(Producto producto:listaProductos) {
-
-            if(idProductoEliminar == producto.getIdProducto()) {
-                listaProductos.remove(producto);
-                loEncontro=true;
-                break;
+                if (idProductoEliminar == producto.getIdProducto()) {
+                    listaProductos.remove(producto);
+                    loEncontro = true;
+                    break;
+                }
             }
+
+            if (loEncontro) {
+                //Actualizar archivo
+                escribirInventario(listaProductos);
+            } else {
+                System.out.println("No existe ese Id de Producto en el inventario");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("El dato ingresado no es válido ");
         }
 
-        if(loEncontro) {
-            //Actualizar archivo
-            escribirInventario(listaProductos);
-        }else {
-            System.out.println("No existe ese Id de Producto en el inventario");
-        }
     }
 
     public static void eliminarProductoPorNombre() {
         List<Producto> listaProductos = Inventario.leerProducto();
-        System.out.println("Id Producto\t\tNombre Producto\t\t\tCategoria\t\tPrecio\t\tCantidad Disponible" );
+        System.out.println("Id Producto\t\tNombre Producto\t\t\tCategoria\t\tPrecio\t\tCantidad Disponible");
 
         for (Producto producto : listaProductos) {
-            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
+            System.out.println(producto.getIdProducto() + "\t\t\t\t" + producto.getNombreProducto() + "\t\t\t\t\t" + producto.getCategoria() + "\t\t\t" + producto.getPrecio() + "\t\t\t" + producto.getCantidadDisponible());
         }
 
         Scanner scanId = new Scanner(System.in);
         System.out.println("Ingresa el Nombre del producto a eliminar");
         String nombreProductoEliminar = scanId.nextLine();
 
-        boolean loEncontro=false;
-        for(Producto producto:listaProductos) {
-            if(producto.getNombreProducto().equalsIgnoreCase(nombreProductoEliminar)) {
+        boolean loEncontro = false;
+        for (Producto producto : listaProductos) {
+            if (producto.getNombreProducto().equalsIgnoreCase(nombreProductoEliminar)) {
                 listaProductos.remove(producto);
-                loEncontro=true;
+                loEncontro = true;
                 break;
             }
         }
 
-        if(loEncontro) {
+        if (loEncontro) {
             //Actualizar archivo
             escribirInventario(listaProductos);
-        }else {
+        } else {
             System.out.println("No existe ese nombre de Producto en el inventario");
         }
     }

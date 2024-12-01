@@ -1,15 +1,15 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Reporte {
-    private static final String leerArchivo = "D:\\PMARTINEZ\\Data\\reporte_inventario.txt";
+    private static final String reporteArchivo = "D:\\PMARTINEZ\\Data\\reporte_inventario.txt";
+    private static final String leerArchivo = "D:\\PMARTINEZ\\Data\\ListaProducto.txt";
     public static void generarReporte() {
         String encabezado = "Id Producto\tNombre Producto\tCategoria\tPrecio\tCantidad Disponible\tValor Total Producto" ;
 
         List<Producto> listaGenerarReporte = Inventario.leerProducto();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(leerArchivo))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(reporteArchivo))) {
             double valorTotal=0;
 
             // Escribir una línea por cada producto en el ArrayList
@@ -26,14 +26,37 @@ public class Reporte {
                 writer.newLine();
 
             }
-            System.out.println("El reporte se encuentra en la ruta "+leerArchivo);
+            writer.newLine();
+            writer.newLine();
+            writer.write("El valor Total en todos sus productos es " +valorTotal);
+
+            System.out.println("El reporte se encuentra en la ruta "+reporteArchivo);
             System.out.println("Archivo creado con éxito.");
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
         }
-        /*for (Producto producto : listaGenerarReporte) {
-            System.out.println(producto.getIdProducto()+"\t\t\t\t"+producto.getNombreProducto()+"\t\t\t\t\t\t"+producto.getCategoria()+"\t\t\t"+producto.getPrecio()+"\t\t\t"+ producto.getCantidadDisponible());
-        }*/
+
 
     }
+
+    public static void productoMasCaro() {
+
+        List<Producto> listProductCaro = Inventario.leerProducto();
+
+
+      Producto prodMasCaro=null;
+      double valorMaximo = Double.MIN_VALUE;
+      for (Producto producto:listProductCaro){
+          if (producto.getPrecio()>valorMaximo){
+              valorMaximo=producto.getPrecio();
+              prodMasCaro=producto;
+          }
+      }
+      if(prodMasCaro!=null){
+          System.out.println("Producto mas caro es "+valorMaximo);
+      }
+
+
+    }
+
 }
