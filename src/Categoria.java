@@ -149,6 +149,10 @@ public class Categoria {
 
     public static void CantidadProducPorCategoria() {
         // HashMap se utiliza para almacenar la info de la categoria (llave, valor)
+        System.out.println("*******************************************************************");
+        System.out.println("*******     6. Cantidad de productos por categoría       **********");
+        System.out.println("*******************************************************************");
+        System.out.println("*                                                                 *");
         Map<String, Integer> categoriaTotal = new HashMap<>();
         try (BufferedReader leerCantProd = new BufferedReader(new FileReader(leerArchivo))) {
             String linea;
@@ -168,6 +172,8 @@ public class Categoria {
         for (Map.Entry<String, Integer> entry : categoriaTotal.entrySet()) {
             System.out.println("Categoria " + entry.getKey() + " Total productos por categoria: " + entry.getValue());
         }
+        System.out.println("*                                                                 *");
+        System.out.println("*******************************************************************");
 
     }
 }

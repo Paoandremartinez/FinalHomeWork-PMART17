@@ -133,22 +133,14 @@ public class Main {
                     Reporte.generarReporte();
                     break;
                 case 6:
-                    System.out.println("*******************************************************************");
-                    System.out.println("*******     6. Cantidad de productos por categoría       **********");
-                    System.out.println("*******************************************************************");
-                    System.out.println("*                                                                 *");
+
                     Categoria.CantidadProducPorCategoria();
-                    System.out.println("*                                                                 *");
-                    System.out.println("*******************************************************************");
+
                     break;
                 case 7:
-                    System.out.println("*******************************************************************");
-                    System.out.println("*******                7. Producto más caro              **********");
-                    System.out.println("*******************************************************************");
-                    System.out.println("*                                                                 *");
+
                     Reporte.productoMasCaro();
-                    System.out.println("*                                                                 *");
-                    System.out.println("*******************************************************************");
+
                     break;
                 default:
                     if
