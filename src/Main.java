@@ -6,10 +6,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner leerOpcion = new Scanner(System.in);
         int opcion = 0; // variable utilizada en el menu principal
-        int opc1=0; // Variable para menu Agregar producto
-        int opc2=0; // Variable para menu Actualizar producto
-        int opc3=0; // Variable para menu Eliminar producto
-        int opc4=0; // Variable para menu buscar por categoria
+        int opc1 = 0; // Variable para menu Agregar producto
+        int opc2 = 0; // Variable para menu Actualizar producto
+        int opc3 = 0; // Variable para menu Eliminar producto
+        int opc4 = 0; // Variable para menu buscar por categoria
 
         do {
             Menu.menuPrincipal();
@@ -26,11 +26,7 @@ public class Main {
                     do {
                         Menu.agregarProducto();
                         System.out.println("Digita una opción del menú");
-                        while (!leerOpcion.hasNextInt()) {
-                            System.out.println("Por favor digita una opción valida");
-                            leerOpcion.next();
-                            System.out.println("Ingresa la opción");
-                        }
+                        ValidacionOpcion.validarOpcion(leerOpcion);
                         opc1 = leerOpcion.nextInt();
 
                         switch (opc1) {
@@ -42,7 +38,7 @@ public class Main {
                                 System.out.println("Vuelve después..... ");
 
                         }
-                    }while (opc1 != 2);
+                    } while (opc1 != 2);
                     break;
 
                 case 2:
@@ -69,7 +65,7 @@ public class Main {
                                 System.out.println("Número no válido, por favor verifique");
                         }
 
-                    }while (opc2 != 3);
+                    } while (opc2 != 3);
                     break;
 
 
@@ -96,7 +92,7 @@ public class Main {
                                 System.out.println("Número no válido, por favor verifique");
                         }
 
-                    }while (opc3 != 3);
+                    } while (opc3 != 3);
                     break;
                 case 4:
                     do {
@@ -126,21 +122,16 @@ public class Main {
                                 System.out.println("Número no válido, por favor verifique");
                         }
 
-                    }while (opc4 != 4);
+                    } while (opc4 != 4);
                     break;
-
                 case 5:
                     Reporte.generarReporte();
                     break;
                 case 6:
-
                     Categoria.CantidadProducPorCategoria();
-
                     break;
                 case 7:
-
                     Reporte.productoMasCaro();
-
                     break;
                 default:
                     if
@@ -148,13 +139,12 @@ public class Main {
                         System.out.println("Si quieres volver al menú Principal presiona enter");
                         leerOpcion.nextLine();
                         leerOpcion.nextLine();
-
                     }
             }
 
 
         }
-        while (opcion != 8) ;
+        while (opcion != 8);
         System.out.println("Vuelve pronto...");
         leerOpcion.close();
 

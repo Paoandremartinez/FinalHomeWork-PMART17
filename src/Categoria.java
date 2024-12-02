@@ -6,14 +6,6 @@ import java.util.*;
 
 public class Categoria {
     private static final String leerArchivo = "D:\\PMARTINEZ\\Data\\ListaProducto.txt";
-    private static List<Producto> listaProductos = new ArrayList<>();
-    private String nombreCategoria;
-
-
-    public Categoria() {
-
-    }
-
     public static void buscarPorCategoria() {
         List<Producto> listaProductosActualizar = Inventario.leerProducto();
         System.out.println("Id Producto\t\tNombre Producto\t\tCategoria\t\tPrecio\t\tCantidad Disponible");

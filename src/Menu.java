@@ -1,5 +1,5 @@
 public class Menu {
-    public static void menuPrincipal (){
+    public static void menuPrincipal() {
         System.out.println("******************************************************");
         System.out.println("*******        FINAL HOME WORK              **********");
         System.out.println("*******   PAOLA ANDREA MARTINEZ - PMART17   **********");
@@ -16,7 +16,8 @@ public class Menu {
         System.out.println("**                                                  **");
         System.out.println("******************************************************");
     }
-    public static void agregarProducto(){
+
+    public static void agregarProducto() {
         System.out.println("*******************************************************************");
         System.out.println("*******               1. Agregar producto               **********");
         System.out.println("*******************************************************************");
@@ -29,7 +30,8 @@ public class Menu {
         System.out.println("Digite su opción ");
 
     }
-    public static void actualizarProducto(){
+
+    public static void actualizarProducto() {
         System.out.println("*******************************************************************");
         System.out.println("*******               2. Actualizar Producto             **********");
         System.out.println("*******************************************************************");
@@ -42,7 +44,8 @@ public class Menu {
         System.out.println("*                                                                 *");
         System.out.println("*******************************************************************");
     }
-    public static void eliminarProducto(){
+
+    public static void eliminarProducto() {
         System.out.println("*******************************************************************");
         System.out.println("*******               3. Eliminar Producto               **********");
         System.out.println("*******************************************************************");
@@ -56,7 +59,8 @@ public class Menu {
         System.out.println("*******************************************************************");
 
     }
-    public static void buscarPorCategoria(){
+
+    public static void buscarPorCategoria() {
         System.out.println("*******************************************************************");
         System.out.println("*******               4. Buscar por categoria            **********");
         System.out.println("*******************************************************************");

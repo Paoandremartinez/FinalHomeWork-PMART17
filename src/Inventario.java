@@ -242,7 +242,7 @@ public class Inventario {
             } else {
                 System.out.println("No existe ese nombre de Producto en el inventario");
             }
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Intenta nuevamente ");
         }
     }
