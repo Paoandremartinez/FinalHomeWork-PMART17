@@ -121,7 +121,7 @@ public class Categoria {
                 String categoria = campos[2];
                 int cantidadDisponible = Integer.parseInt(campos[4]);
                 // el metodo getOrDefault se usa para dar un valor cuando las claves son ausentes
-                categoriaTotal.put(categoria, categoriaTotal.getOrDefault(categoria,2)+cantidadDisponible);
+                categoriaTotal.put(categoria, categoriaTotal.getOrDefault(categoria,0)+cantidadDisponible);
 
             }
         }catch (IOException e)
