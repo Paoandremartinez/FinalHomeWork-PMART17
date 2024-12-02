@@ -144,6 +144,8 @@ public class Main {
                     System.out.println("*******     6. Cantidad de productos por categoría       **********");
                     System.out.println("*******************************************************************");
                     System.out.println("*                                                                 *");
+                    Categoria.CantidadProducPorCategoria();
+                    System.out.println("*                                                                 *");
                     System.out.println("*******************************************************************");
                     break;
                 case 7:
