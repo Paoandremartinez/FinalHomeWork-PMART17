@@ -4,8 +4,11 @@ import java.util.stream.Stream;
 
 public class Reporte {
     private static final String reporteArchivo = "D:\\PMARTINEZ\\Data\\reporte_inventario.txt";
-    private static final String leerArchivo = "D:\\PMARTINEZ\\Data\\ListaProducto.txt";
-    public static void generarReporte() {
+     public static void generarReporte() {
+        System.out.println("*******************************************************************");
+        System.out.println("*******               5. Generar Reporte                 **********");
+        System.out.println("*                                                                 *");
+
         String encabezado = "Id Producto\tNombre Producto\tCategoria\tPrecio\tCantidad Disponible\tValor Total Producto" ;
 
         List<Producto> listaGenerarReporte = Inventario.leerProducto();
@@ -32,6 +35,9 @@ public class Reporte {
 
             System.out.println("El reporte se encuentra en la ruta "+reporteArchivo);
             System.out.println("Archivo creado con éxito.");
+
+            System.out.println("*                                                                 *");
+            System.out.println("*******************************************************************");
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
         }
@@ -53,7 +59,7 @@ public class Reporte {
           }
       }
       if(prodMasCaro!=null){
-          System.out.println("Producto mas caro es "+valorMaximo);
+          System.out.println("El producto mas costoso  "+prodMasCaro.getNombreProducto()+ " con un valor de " +valorMaximo);
       }
 
 

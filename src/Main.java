@@ -100,7 +100,7 @@ public class Main {
                     break;
                 case 4:
                     do {
-                        Categoria.buscarPorCategoria();
+                        Menu.buscarPorCategoria();
 
                         ValidacionOpcion.validarOpcion(leerOpcion);
                         opc4 = leerOpcion.nextInt();
@@ -112,12 +112,11 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Buscar por Id Producto");
-                                System.out.println("En CONSTRUCCIÓN ");
+                                Categoria.buscarPorIdProducto();
 
                                 break;
                             case 3:
                                 System.out.println("Buscar por Nombre de Producto");
-                                System.out.println("En CONSTRUCCIÓN ");
                                 Categoria.buscarPorNombreProducto();
                                 break;
                             case 4:
@@ -131,13 +130,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("*******************************************************************");
-                    System.out.println("*******               5. Generar Reporte                 **********");
-                    System.out.println("*                                                                 *");
                     Reporte.generarReporte();
-                    System.out.println("*                                                                 *");
-                    System.out.println("*******************************************************************");
-
                     break;
                 case 6:
                     System.out.println("*******************************************************************");

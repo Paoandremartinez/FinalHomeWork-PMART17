@@ -222,25 +222,28 @@ public class Inventario {
         for (Producto producto : listaProductos) {
             System.out.println(producto.getIdProducto() + "\t\t\t\t" + producto.getNombreProducto() + "\t\t\t\t\t" + producto.getCategoria() + "\t\t\t" + producto.getPrecio() + "\t\t\t" + producto.getCantidadDisponible());
         }
+        try {
+            Scanner scanId = new Scanner(System.in);
+            System.out.println("Ingresa el Nombre del producto a eliminar");
+            String nombreProductoEliminar = scanId.nextLine();
 
-        Scanner scanId = new Scanner(System.in);
-        System.out.println("Ingresa el Nombre del producto a eliminar");
-        String nombreProductoEliminar = scanId.nextLine();
-
-        boolean loEncontro = false;
-        for (Producto producto : listaProductos) {
-            if (producto.getNombreProducto().equalsIgnoreCase(nombreProductoEliminar)) {
-                listaProductos.remove(producto);
-                loEncontro = true;
-                break;
+            boolean loEncontro = false;
+            for (Producto producto : listaProductos) {
+                if (producto.getNombreProducto().equalsIgnoreCase(nombreProductoEliminar)) {
+                    listaProductos.remove(producto);
+                    loEncontro = true;
+                    break;
+                }
             }
-        }
 
-        if (loEncontro) {
-            //Actualizar archivo
-            escribirInventario(listaProductos);
-        } else {
-            System.out.println("No existe ese nombre de Producto en el inventario");
+            if (loEncontro) {
+                //Actualizar archivo
+                escribirInventario(listaProductos);
+            } else {
+                System.out.println("No existe ese nombre de Producto en el inventario");
+            }
+        }catch (NumberFormatException e) {
+            System.out.println("Intenta nuevamente ");
         }
     }
 
